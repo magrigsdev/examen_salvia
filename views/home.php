@@ -1,33 +1,36 @@
 <?php
 
 $vehicules = $vehiculeModel->readAll();
-
+var_dump($vehicules);
 ?>
 
-<h2 class="text-center">Location de véhicules</h2>
+<h1 class="text-center h1 text-uppercase text-primary">la liste des vehicules</h1>
 
+<img src="" alt="" srcset="">
 <div class="row mt-3 justify-content-around">
-    <?php foreach ($vehicules as $veh):
-        
-        //$agence = $agenceModel->read($veh->getId());
-        ?>
-        <?php ?>
-        <div class="card col-3 p-1">
-            <div class="w-100">
-                <img src="https://cdn.pixabay.com/photo/2012/11/02/13/02/car-63930_1280.jpg" class="img-fluid" alt="">
-            </div>
+    <?php foreach ($vehicules as $veh): ?>
 
+        <div class="card p-2" style="width: 18rem;">
+            <img src="<?= $veh->getImage(); ?>" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">ville :<?= $veh->getId() ?></h5>
-                <h5 class="card-text">marque : <?= $veh->getMarque()  ?> </h5>
-                <h5 class="card-text">poids : <?= $veh->getPoids() ?> </h5>
-                <h5 class="card-text">etat : <?= $veh->getEtat() ?> </h5>
-                <h5 class="card-text">capacité : <?= $veh->getCapacite() ?> </h5>
+                <h5 class="card-title text-uppercase"> <?= $veh->getMarque(); ?>  <?= $veh->getModele(); ?> </h5>
+                <p>
+                    <span class="card-text text-capitalize small">marque : <?= $veh->getMarque(); ?></span><br>
+                    <span class="card-text text-capitalize small">model : <?= $veh->getModele(); ?></span> 
+                    <span class="card-text text-capitalize small">  capacité : <?= $veh->getCapacite(); ?></span><br>
+                    <span class="card-text text-capitalize small">prix  : <?= $veh->getPrixJournalier(); ?>/ jour</span><br>
+                    <span class="card-text text-capitalize small">  etat : <?= $veh->getEtat(); ?></span>
+                    <span class="card-text text-capitalize small">poids : <?= $veh->getPoids(); ?> tonne</span><br>
+                    <span class="card-text text-capitalize small">agence : <?= $veh->getAgence(); ?></span><br>
+                </p>
+                
             </div>
-
-            <a class="btn btn-outline-success" href="?actionVehicule=detail&id=<?php ?>">Réserver</a>
-
+            <div class="card-footer">
+                <a href="#" class="btn btn-primary p-1">Reserver</a>
+            </div>
         </div>
-    <?php endforeach; ?>
+    <?php endforeach ?>
+
+
 
 </div>

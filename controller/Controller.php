@@ -16,6 +16,7 @@ class Controller {
         if(empty($_GET)){
             //echo "nous sommes dans index";
             include "./views/home.php";
+            //include "./views/connect.php";
         }
        
        

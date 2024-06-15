@@ -52,7 +52,7 @@ class VehiculeModel {
 
     public function update(Vehicule $vehicule) {
         $query = 'UPDATE vehicule SET marque = :marque, modele = :modele, prix_journalier = :prix_journalier, 
-                  img = :img, poids = :poids, type = :type, etat = :etat, capacite = :capacite, agence = :agence 
+                  img = :img, poids = :poids, type = :type, etat = :etat, capacite = :capacite, id_agence = :agence 
                   WHERE id = :id';
 
         $stmt = $this->pdo->prepare($query);
@@ -61,7 +61,7 @@ class VehiculeModel {
         $stmt->bindValue(':marque', $vehicule->getMarque());
         $stmt->bindValue(':modele', $vehicule->getModele());
         $stmt->bindValue(':prix_journalier', $vehicule->getPrixJournalier());
-        $stmt->bindValue(':img', $vehicule->getImg());
+        $stmt->bindValue(':img', $vehicule->getImage());
         $stmt->bindValue(':poids', $vehicule->getPoids());
         $stmt->bindValue(':type', $vehicule->getType());
         $stmt->bindValue(':etat', $vehicule->getEtat());

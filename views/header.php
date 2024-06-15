@@ -9,4 +9,21 @@
     <title>vehicule</title>
 </head>
 
-<body></body>
+<body>
+
+<div class="row">
+    <div class="col-md-12 m-4 text-center">
+        
+            <a href=""  class="btn btn-outline-primary">la liste des vehicules</a>
+            <a href=""  class="btn btn-outline-warning">la liste des agences</a>
+            <a href=""  class="btn btn-outline-success">les reservations</a>
+        
+    </div>
+    <hr class="hr"/>
+</div>
+
+<!-- <button type="button" class="btn btn-outline-danger">Danger</button>
+<button type="button" class="btn btn-outline-warning">Warning</button>
+<button type="button" class="btn btn-outline-info">Info</button>
+<button type="button" class="btn btn-outline-light">Light</button>
+<button type="button" class="btn btn-outline-dark">Dark</button> -->
