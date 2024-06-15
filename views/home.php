@@ -1,31 +1,31 @@
 <?php
 
+$vehicules = $vehiculeModel->readAll();
 
-//$vehicules = $agencemodel->readAll();
-
-var_dump($vehicules);
 ?>
 
 <h2 class="text-center">Location de véhicules</h2>
 
 <div class="row mt-3 justify-content-around">
     <?php foreach ($vehicules as $veh):
-        $agence = $agencemodel->read($veh->getIdAgence());
         
+        //$agence = $agenceModel->read($veh->getId());
         ?>
-        <?php var_dump($agence) ?>
-        <div class="card col-3 m-1 p-1">
+        <?php ?>
+        <div class="card col-3 p-1">
             <div class="w-100">
                 <img src="https://cdn.pixabay.com/photo/2012/11/02/13/02/car-63930_1280.jpg" class="img-fluid" alt="">
             </div>
 
             <div class="card-body">
-                <h3 class="card-title">ville :<?= $veh->getVille() ?></h3>
-                <h3 class="card-text">code postal : <?= $veh->getCp() ?> </h3>
-                <h3 class="card-text">agence : <?= $veh->getIdAgence() ?> </h3>
+                <h5 class="card-title">ville :<?= $veh->getId() ?></h5>
+                <h5 class="card-text">marque : <?= $veh->getMarque()  ?> </h5>
+                <h5 class="card-text">poids : <?= $veh->getPoids() ?> </h5>
+                <h5 class="card-text">etat : <?= $veh->getEtat() ?> </h5>
+                <h5 class="card-text">capacité : <?= $veh->getCapacite() ?> </h5>
             </div>
 
-            <a class="btn btn-outline-success" href="?actionVehicule=detail&id=<?= $veh->getIdAgence() ?>">Détail du véhicule</a>
+            <a class="btn btn-outline-success" href="?actionVehicule=detail&id=<?php ?>">Réserver</a>
 
         </div>
     <?php endforeach; ?>

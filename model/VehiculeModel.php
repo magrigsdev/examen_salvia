@@ -16,12 +16,11 @@ class VehiculeModel {
     }
 
     public function create(Vehicule $vehicule) {
-        $query = 'INSERT INTO vehicule (id, marque, modele, prix_journalier, img, poids, type, etat, capacite, agence) 
-                  VALUES (:id, :marque, :modele, :prix_journalier, :img, :poids, :type, :etat, :capacite, :agence)';
+        $query = 'INSERT INTO vehicule ( marque, modele, prix_journalier, img, poids, type, etat, capacite, agence) 
+                  VALUES ( :marque, :modele, :prix_journalier, :img, :poids, :type, :etat, :capacite, :agence)';
 
         $stmt = $this->pdo->prepare($query);
 
-        $stmt->bindValue(':id', $vehicule->getId());
         $stmt->bindValue(':marque', $vehicule->getMarque());
         $stmt->bindValue(':modele', $vehicule->getModele());
         $stmt->bindValue(':prix_journalier', $vehicule->getPrixJournalier());

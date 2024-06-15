@@ -39,8 +39,9 @@ class AgenceModel
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
         if ($row) {
-            return new Agence($row['id_agence'], $row['nom'], $row['adresse'], $row['cp'], $row['ville']);
+            return new Agence($row);
         }
 
         return null;

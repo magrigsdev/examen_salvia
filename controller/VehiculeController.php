@@ -3,17 +3,20 @@
 namespace App\Controller;
 
 use App\Model\VehiculeModel;
-use App\Classes\Vehicule;
+use App\Entity\Vehicule;
 use Exception;
 
-class VehiculeController {
+class VehiculeController
+{
     protected $model;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new VehiculeModel();
     }
 
-    public function create($data) {
+    public function create($data)
+    {
         try {
             $vehicule = new Vehicule($data);
             $result = $this->model->create($vehicule);
@@ -28,7 +31,8 @@ class VehiculeController {
         }
     }
 
-    public function read($id) {
+    public function read($id)
+    {
         try {
             $vehicule = $this->model->read($id);
 
@@ -42,7 +46,8 @@ class VehiculeController {
         }
     }
 
-    public function update($data) {
+    public function update($data)
+    {
         try {
             $vehicule = new Vehicule($data);
             $result = $this->model->update($vehicule);
@@ -57,7 +62,8 @@ class VehiculeController {
         }
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         try {
             $result = $this->model->delete($id);
 
@@ -71,7 +77,8 @@ class VehiculeController {
         }
     }
 
-    public function readAll() {
+    public function readAll()
+    {
         try {
             $vehicules = $this->model->readAll();
 
