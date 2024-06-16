@@ -3,15 +3,13 @@ namespace App\Entity;
 
 class Vehicule
 {
-	private $id;
+	private $id_vehicule;
 	private $marque;
 	private $modele;
 	private $prix_journalier;
 	private $poids;
-	private $type;
 	private $etat;
 	private $capacite;
-	private $agence;
 	private $image;
 
 	private $id_agence;
@@ -31,6 +29,16 @@ class Vehicule
 				$this->$methode($value);
 			}
 		}
+		// foreach ($data as $key => $value) {
+		// 	//création des get...
+		// 	$methode = "get" . ucfirst($key);
+
+		// 	//test si le get existe
+		// 	if (method_exists($this, $methode)) {
+		// 		//appel du getter et on passe le '$value' en paramètre
+		// 		$this->$methode($value);
+		// 	}
+		// }
 
 	}
 
@@ -39,7 +47,7 @@ class Vehicule
 		return "public/images/" . $this->image;
 	}
 
-	public function getPrixJournalier()
+	public function getPrix_journalier()
 	{
 		return $this->prix_journalier;
 	}
@@ -50,16 +58,9 @@ class Vehicule
 		return $this->etat;
 	}
 
-	public function getAgence()
+	public function getId_vehicule()
 	{
-		return $this->agence;
-	}
-
-	
-
-	public function getId()
-	{
-		return $this->id;
+		return $this->id_vehicule;
 	}
 
 	public function getMarque()
@@ -82,10 +83,6 @@ class Vehicule
 		return $this->poids;
 	}
 
-	public function getType()
-	{
-		return $this->type;
-	}
 	public function getCapacite()
 	{
 		return $this->capacite;
@@ -93,12 +90,12 @@ class Vehicule
 
 	public function getId_agence()
 	{
-		return $this->agence;
+		return $this->id_agence;
 	}
 
-	public function setId($id): void
+	public function setId_vehicule($id): void
 	{
-		$this->id = $id;
+		$this->id_vehicule = $id;
 	}
 
 	public function setMarque($marque): void
@@ -111,7 +108,6 @@ class Vehicule
 		$this->modele = $modele;
 	}
 
-
 	public function setImage($image): void
 	{
 		$this->image = $image;
@@ -122,22 +118,12 @@ class Vehicule
 		$this->poids = $poids;
 	}
 
-	public function setType($type): void
-	{
-		$this->type = $type;
-	}
 	public function setCapacite($type): void
 	{
 		$this->capacite = $type;
 	}
 
-	public function setAgence($agence): void
-	{
-		$this->agence = $agence;
-	}
-
-
-	public function setPrixJournalier($prix_journalier): void
+	public function setPrix_journalier($prix_journalier): void
 	{
 		$this->prix_journalier = $prix_journalier;
 	}
@@ -148,9 +134,9 @@ class Vehicule
 		$this->etat = $etat;
 	}
 
-	public function setIdAgence($id_agence): void
+	public function setId_agence($id_agence): void
 	{
-		$this->agence = $id_agence;
+		$this->id_agence = $id_agence;
 	}
 
 

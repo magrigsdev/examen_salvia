@@ -12,6 +12,8 @@ class Controller {
         $vehiculeModel = new VehiculeModel();
         $agenceModel = new AgenceModel();
 
+        $crt_vehicule = new VehiculeController();
+
         //quand url est vide
         if(empty($_GET)){
             //echo "nous sommes dans index";

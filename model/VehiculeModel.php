@@ -87,11 +87,14 @@ class VehiculeModel {
         $stmt->execute();
 
         $vehicules = [];
+        //return $stmt->fetch();
+        //$row = $stmt->fetch();
+        //return $row;
 
         while ($row = $stmt->fetch()) {
             $vehicules[] = new Vehicule($row);
         }
 
-        return $vehicules;
+        return $vehicules; 
     }
 }
