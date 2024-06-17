@@ -41,22 +41,35 @@ class Controller {
             //obtenir le id de l'utilisateur par mail
             $id_utilisateur = $modelUs->getIdutilisateur($_POST['email']);
             $id_vehicule = $_POST['id_vehicule'];
-            
-            if($modelUs->connection($_POST['email'], $_POST['mdp'])){
-                //recuperer le id de vehicule 
-                
-                
-                include "./views/reserver.php";
+
+            //admin
+            if (isset($_GET['email']) && $_GET['email'] == 'salvia@gmail.com') {
+                //include "./views/connect.php"
+                //page vide en 
+                if ($modelUs->connection($_POST['email'], $_POST['mdp'])) {
+                    //recuperer le id de vehicule 
+                    $vehiculeModel = new VehiculeModel();
+                    $vehicules = $vehiculeModel->readAll();
+                    echo "liste vehicule";
+                    include "./views/listevehicule.php";
+
+                } else {
+                    include "./views/connect.php";
+                }
+
             }
-            else{
-                include "./views/connect.php";
+            elseif (isset($_GET['email']) && $_GET['email'] != 'salvia@gmail.com') {
+                if ($modelUs->connection($_POST['email'], $_POST['mdp'])) {
+                    //recuperer le id de vehicule 
+                    include "./views/reserver.php";
+                } else {
+                    include "./views/connect.php";
+                }
             }
-        }
-        //admin
-        if (isset($_GET['email']) && $_GET['email'] == 'salvia@gmail.com') {
-            //include "./views/connect.php";
+            
             
         }
+        
 
         //reservation_traitement
         if (isset($_GET['url']) && $_GET['url'] == 'reservation_traitement') {

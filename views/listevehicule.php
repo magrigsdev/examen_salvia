@@ -1,12 +1,8 @@
 <?php
 
-
-$vehicules = $vehiculeModel->readAll();
-//$vehicules = $data['data'];
-//var_dump($vehicules);
 ?>
 
-<h1 class="text-center lead text-uppercase text-primary">la liste des vehicules</h1>
+<h1 class="text-center lead text-uppercase text-primary">la liste des vehicules pour admin</h1>
 
 <img src="" alt="" srcset="">
 <div class="row mt-3 justify-content-around">
@@ -25,13 +21,14 @@ $vehicules = $vehiculeModel->readAll();
                     <span class="card-text text-capitalize small"> etat : <?= $veh->getEtat(); ?></span>
                     <span class="card-text text-capitalize small">poids : <?= $veh->getPoids(); ?> tonne</span><br>
                     <span class="card-text text-capitalize small">agence : <?= $veh->getId_agence(); ?></span><br>
-                    
+
 
                 </p>
 
             </div>
             <div class="card-footer">
-                <a href="?url=reserver&idvehicule=<?= $veh->getId_vehicule(); ?>" class="btn btn-primary p-1">Reserver</a>
+                <a href="?url=reserver&idvehicule=<?= $veh->getId_vehicule(); ?>" class="btn btn-primary p-1">supprimer</a>
+                <a href="?url=reserver&idvehicule=<?= $veh->getId_vehicule(); ?>" class="btn btn-danger p-1">modifier</a>
             </div>
         </div>
     <?php endforeach ?>

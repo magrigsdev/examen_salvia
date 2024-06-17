@@ -1,10 +1,5 @@
 
-<?php
-var_dump("vehicule ".$id_vehicule);
 
-var_dump("utilisateur ".$id_utilisateur);
-
-?>
 
 <div class="row text-center m-4">
     <div class="col-6">
