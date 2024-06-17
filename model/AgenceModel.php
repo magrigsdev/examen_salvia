@@ -1,6 +1,7 @@
 <?php 
 namespace App\Model;
 
+
 use PDO;
 use App\Entity\Agence;
 
@@ -80,7 +81,7 @@ class AgenceModel
         $agences = [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $agences[] = new Agence($row['id_agence'], $row['nom'], $row['adresse'], $row['cp'], $row['ville']);
+            $agences[] = new Agence([$row['id_agence'], $row['nom'], $row['adresse'], $row['cp'], $row['ville']]);
         }
 
         return $agences;

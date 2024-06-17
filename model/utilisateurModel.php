@@ -101,4 +101,35 @@ class UtilisateurModel {
 
         return $connection;
     }
+
+    public function reserver($date, $id_utilisateur, $id_vehicule){
+        $query = 'INSERT INTO reserver (id_utilisateur, id_vehicule, date_reservations) 
+                  VALUES (:id_utilisateur, :id_vehicule, :date_reservations)';
+
+        $stmt = $this->pdo->prepare($query);
+
+        $stmt->bindValue(':id_utilisateur', $id_utilisateur);
+        $stmt->bindValue(':id_vehicule', $id_vehicule);
+        $stmt->bindValue(':date_reservations', $date);
+        return $stmt->execute();
+    }
+
+    public function getIdutilisateur($email){
+        $query = 'SELECT * FROM utilisateur WHERE email = :email';
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+
+        $row = $stmt->fetch();
+
+        if ($row) {
+            $utilisateur =  new Utilisateur($row['id_utilisateur'], $row['nom'], $row['prenom'], $row['sexe'], $row['email'], $row['mdp'], $row['date_inscription']);
+            return $utilisateur->getIdUtilisateur();
+        }
+
+        return null;
+    }
+
+
 }
