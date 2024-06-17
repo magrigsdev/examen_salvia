@@ -7,8 +7,19 @@ class Agence{
     private $cp;
     private $ville;
 
-    public function __construct( $id_agence,  $nom,  $adresse,$cp,  $ville)
-    {$this->id_agence = $id_agence;$this->nom = $nom;$this->adresse = $adresse;$this->cp = $cp;$this->ville = $ville;
+    public function __construct($data = [] )
+    {
+
+        foreach ($data as $key => $value) {
+            //création des set...
+            $methode = "set" . ucfirst($key);
+
+            //test si le setter existe
+            if (method_exists($this, $methode)) {
+                //appel du setter et on passe le '$value' en paramètre
+                $this->$methode($value);
+            }
+        }
     }
 
     public function getIdAgence() {return $this->id_agence;}

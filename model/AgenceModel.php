@@ -39,7 +39,7 @@ class AgenceModel
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+       // var_dump($id_agence);
         if ($row) {
             return new Agence($row);
         }
@@ -48,7 +48,8 @@ class AgenceModel
     }
 
     public function update(Agence $agence) {
-        $query = 'UPDATE agences SET nom = :nom, adresse = :adresse, cp = :cp, ville = :ville WHERE id_agence = :id_agence';
+        $query = 'UPDATE agences SET nom = :nom, adresse = :adresse, cp = :cp, ville = :ville 
+        WHERE id_agence = :id_agence';
 
         $stmt = $this->pdo->prepare($query);
 

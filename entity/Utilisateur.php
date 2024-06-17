@@ -1,5 +1,5 @@
 <?php 
-namespace App\Classes ;
+namespace App\Entity ;
 
 class Utilisateur{
     private $id_utilisateur;

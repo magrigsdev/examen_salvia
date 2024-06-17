@@ -3,13 +3,13 @@
 namespace App\Model;
 
 use PDO;
-use App\Classes\Utilisateur;
+use App\Entity\Utilisateur;
 
 class UtilisateurModel {
     protected $pdo;
 
     public function __construct() {
-        $this->pdo = new PDO("mysql:host=127.0.0.1;dbname=projet_examen", "root", "", [
+        $this->pdo = new PDO("mysql:host=127.0.0.1;dbname=salvia_agence", "root", "", [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
@@ -75,7 +75,7 @@ class UtilisateurModel {
     }
 
     public function readAll() {
-        $query = 'SELECT * FROM utilisateurs';
+        $query = 'SELECT * FROM utilisateur';
 
         $stmt = $this->pdo->prepare($query);
         $stmt->execute();
@@ -87,5 +87,18 @@ class UtilisateurModel {
         }
 
         return $utilisateurs;
+    }
+
+    public function connection($email, $mdp){
+        $connection = false;
+        $utilisateurs = $this->readAll();
+        foreach ($utilisateurs as  $utilisateur) {
+            # code...
+            if($utilisateur->getEmail() == $email && $utilisateur->getMdp() == $mdp){
+                $connection = true;
+            }
+        }
+
+        return $connection;
     }
 }

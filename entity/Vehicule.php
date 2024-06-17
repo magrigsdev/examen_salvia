@@ -1,5 +1,6 @@
 <?php
 namespace App\Entity;
+use App\Model\AgenceModel;
 
 class Vehicule
 {
@@ -90,6 +91,7 @@ class Vehicule
 
 	public function getId_agence()
 	{
+
 		return $this->id_agence;
 	}
 
@@ -134,9 +136,13 @@ class Vehicule
 		$this->etat = $etat;
 	}
 
+	//juste pour afficher le nom de l'agence
 	public function setId_agence($id_agence): void
 	{
-		$this->id_agence = $id_agence;
+		$agencemodel = new AgenceModel();
+		$agence = $agencemodel->read($id_agence);
+		$nomAgence = $agence->getNom();
+		$this->id_agence = $nomAgence ;
 	}
 
 
